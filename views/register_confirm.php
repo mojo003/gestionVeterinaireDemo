@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Inscription effectuée</title>
-    <link rel="stylesheet" type="text/css" href="public/css/style_animaux.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/style_animals.css" />
   </head>
   <body>
     <h1>Inscription effectuée</h1>

@@ -15,14 +15,15 @@ include_once('controllers/list.php');
 include_once('controllers/add.php');
 include_once('controllers/edit.php');
 include_once('controllers/delete.php');
+include_once('controllers/add_adoption.php');
+include_once('controllers/list_adoption.php');
+include_once('controllers/delete_adoption.php');
+include_once('controllers/display_client.php');
+include_once('controllers/add_client.php');
+include_once('controllers/edit_client.php');
+include_once('controllers/list_client.php');
 
 
-
-/*
-  On a ajouté une méthode "isRestricted" aux contrôleurs.
-  Si elle retourne true, la page correspondante n'est accessible
-  qu'aux utilisateurs authentifiés.
-*/
 
 $action = 'home';
 if (isset($_GET['action'])) {
@@ -61,16 +62,35 @@ switch ($action) {
   case 'delete':
     $controller = new DeleteController($db);
     break;
+  case 'add_adoption':
+    $controller = new AddAdoptionController($db);
+    break;
+  case 'list_adoption':
+    $controller = new ListAdoptionController($db);
+    break;
+  case 'delete_adoption':
+    $controller = new DeleteAdoptionController($db);
+    break;
+  case 'add_client':
+    $controller = new AddClientController($db);
+    break;
+  case 'display_client':
+    $controller = new DisplayClientController($db);
+    break;    
+  case 'edit_client':
+    $controller = new EditClientController($db);
+    break;
+  case 'list_client':
+    $controller = new ListClientController($db);
+    break;
   case 'home':
     default:
     $controller = new HomeController($db);
 }
 
-/*
-  Si la page n'est accessible qu'aux utilisateurs authentifiés
-  et que l'utilisateur ne l'est pas, remplacer $controller
-  par le contrôleur de login.
-*/
+
+
+
 if ($controller->isRestricted() && !isset($_SESSION['username'])) {
   $controller = new LoginController($db);
 }

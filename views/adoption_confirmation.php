@@ -7,8 +7,8 @@
   </head>
   <body>
     <?php include(__DIR__ . '/header.php') ?>
-    <h1>Animal ajouté</h1>
-    <p>L'animal a été ajouté.</p>
-    <p> <a href="?action=list" class="button1">Liste des animaux <i class='fas fa-cat'></i> </a></p>
+    <h1>Animal est mis en adoption</h1>
+    <p>L'animal a été mis en adoption.</p>
+    <p> <a href="?action=list_adoption" class="button1">Liste des animaux en adoption <i class='fas fa-cat'></i> </a></p>
   </body>
 </html>

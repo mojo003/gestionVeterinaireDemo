@@ -31,6 +31,12 @@ h1, body > p {
   margin-top: 60px;
 }
 
+.homeTitle {
+  font-size: 60px;
+  margin: 20px;
+  padding: 20px;
+}
+
 main > p {
   padding-top: 15px;
   padding-left: 45%;
@@ -55,12 +61,23 @@ header a {
 
 li {
   margin-bottom: 1em;
-  margin-left: 10em;
+  margin-left: 25em;
+  font-size: 25px;
+}
+
+.banner {
+  display:block;
+  margin:auto;
+  width: 80%;
 }
 
 table {
   margin: auto;
   width: 98%;
+}
+
+.table1 {
+  width: 50%;
 }
 
 th {
@@ -83,18 +100,18 @@ tbody tr:nth-child(even) {
   background-color: #dddcd8;
 }
 
-.ligne-donnees {
+.data_line {
   cursor: pointer;
 }
 
-.ligne-donnees:hover {
+.data_line:hover {
   background-color: #b9c3ba;
 }
 
 .button{
   width: 20%;
 	display: block;
-  margin: 0 65%;
+  margin: 0 60%;
   padding: 15px;
   border-radius: 10px;
   background-color: #8eb692;
@@ -114,6 +131,7 @@ tbody tr:nth-child(even) {
   text-decoration: none;
   text-align: center;
 }
+
 
 
 form input[type="submit"] {
@@ -141,7 +159,11 @@ form select {
   width: 20%;
 }
 
-.col-actions {
+.col-center {
   text-align: center;
 }
+
+#fond
+{ background-color:  #fff1c0; }
+
 

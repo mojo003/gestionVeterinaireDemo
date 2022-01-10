@@ -15,13 +15,13 @@ class LoginController extends Controller {
     $hashedPassword = $model->getHashedPassword($post['username']);
   
     if ($hashedPassword && password_verify($post['password'], $hashedPassword)) {
-      // Le mot de passe saisi est le bon
+
       
       $session['username'] = $post['username'];
       
       header('Location: ?action=connected');
     } else {
-      // Le mot de passe saisi est invalide, ou l'utilisateur n'existe pas
+
       $loginFailed = true;
       include('views/login_form.php');
     }

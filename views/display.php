@@ -2,18 +2,18 @@
 <html>
   <head>
     <title>
-      <?= $animal['nom'] ?>
+      <?= $animal['name'] ?>
     </title>
-    <link rel="stylesheet" type="text/css" href="public/css/style_animaux.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/style_animals.css" />
   </head>
   <body>
     <?php include(__DIR__ . '/header.php') ?>
     <p>
       <a href="?action=list">Liste des animaux</a>
       &nbsp;/&nbsp;
-      <?= $animal['nom'] ?>
+      <?= $animal['name'] ?>
     </p>
-    <h1><?= $animal['nom'] ?></h1>   
+    <h1><?= $animal['name'] ?></h1>   
     
     <p>
       <a href="?action=edit&id=<?= $id ?>">
@@ -21,53 +21,51 @@
       </a>
       &nbsp;
       <a
-        onclick="return confirm('Voulez-vous vraiment supprimer cet animal « <?= $animal['nom'] ?> » ?')"
+        onclick="return confirm('Voulez-vous vraiment supprimer cet animal « <?= $animal['name'] ?> » ?')"
         href="?action=delete&id=<?= $id ?>"
       >
         ❌
       </a>
+      &nbsp;
+      <?php if($animal['type']=="Chien") : ?>
+          <a
+          onclick="return confirm('Voulez-vous mettre l\'animal « <?= $animal['name'] ?> » en adoption  ?')"
+          href="?action=add_adoption&id=<?= $id ?>">
+            🐶
+          </a>
+        <?php else : ?>
+          <a
+          onclick="return confirm('Voulez-vous mettre l\'animal « <?= $animal['name'] ?> » en adoption  ?')"
+          href="?action=add_adoption&id=<?= $id ?>">
+            🐱
+          </a>
+        <?php endif; ?>
     </p>
 
     <main>
-    <p>
-        <strong>Type: </strong>
-        <?= $animal['type'] ?>
+      <p>
+        <strong>Race: </strong>
+        <?= $animal['breed'] ?>
       </p>
       <p>
-        <strong>Espèce: </strong>
-        <?= $animal['espece'] ?>
+        <strong>Type: </strong>
+        <?= $animal['type'] ?>
       </p>
       <p>
         <strong>Âge: </strong>
         <?= $animal['age'] ?>
       </p>
       <p>
-        <strong>Nom de mâtre: </strong>
-        <?= $animal['master_name'] ?>
-      </p>
-      <p>
-        <strong>Prénom de mâtre: </strong>
-        <?= $animal['master_first_name'] ?>
-      </p>
-      <p>
-        <strong>Téléphone: </strong>
-        <?= $animal['master_tel_num'] ?>
-      </p> 
-      <p>
-        <strong>Adresse: </strong>
-        <?= $animal['adresse'] ?>
-      </p>          
-      <p>
-        <strong>Ville: </strong>
-        <?= $animal['ville'] ?>
-      </p> 
-      <p>
         <strong>Nom du veterinaire: </strong>
         <?= $animal['vet_name'] ?>
       </p> 
       <p>
+        <strong>Nom du client: </strong>
+        <?= $animal['client_name'] ?>
+      </p> 
+      <p>
         <strong>Description santé: </strong>
-        <?= $animal['description_sante'] ?>
+        <?= $animal['health_description'] ?>
       </p>   
     
     </main>

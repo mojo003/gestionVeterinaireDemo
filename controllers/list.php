@@ -1,7 +1,7 @@
 <?php
 
 include_once(__DIR__ . '/../controller.php');
-include_once(__DIR__ . '/../models/animal.php');
+include_once(__DIR__ . '/../models/animals.php');
 
 class ListController extends Controller {
   function handle(&$session, $get) {

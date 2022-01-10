@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Infos de l'utilisateur</title>
-    <link rel="stylesheet" type="text/css" href="public/css/style_animaux.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/style_animals.css" />
   </head>
   <body>
     <?php include(__DIR__ . '/header.php') ?>

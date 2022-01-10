@@ -1,0 +1,85 @@
+CREATE DATABASE veterinary;
+
+CREATE TABLE veterinarians (
+	id INTEGER NOT NULL PRIMARY KEY,
+	name TEXT,
+	first_name TEXT,
+	phone_number TEXT,
+	address TEXT,
+	city TEXT
+);
+
+CREATE TABLE types (
+    id INTEGER NOT NULL PRIMARY KEY,
+    type TEXT
+);
+
+
+CREATE TABLE masters (
+	Id INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+	name TEXT,
+	first_name TEXT,
+	phone_number TEXT,
+	address TEXT,
+	city TEXT
+);
+
+CREATE TABLE animals (
+	id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+	name TEXT,
+	breed TEXT,
+	id_type INTEGER REFERENCES types,
+	age INT,
+	id_vet INT REFERENCES veterinarians,
+	id_client INT REFERENCES masters,
+	health_description TEXT
+);
+
+
+CREATE TABLE adoptions (
+	id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+	name TEXT,
+	breed TEXT,
+	id_type INTEGER REFERENCES types,
+	age INT,
+	id_vet INT REFERENCES veterinarians,
+	health_description TEXT
+);
+
+CREATE TABLE users (
+	id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+	username TEXT NOT NULL,
+	hashed_password TEXT NOT NULL,
+	first_name TEXT NOT NULL,
+	last_name TEXT NOT NULL
+);
+
+INSERT INTO masters (name, first_name, phone_number, address, city)
+    VALUES ('Tremblay', 'Gille', '819-111-2345', '1 rue trois', 'Sherbrooke'),
+					 ('Garnier', 'Samuel', '819-222-2345', '21 rue trois', 'Sherbrooke'),
+					 ('Grenier', 'Paul', '819-333-2345', '13 rue trois', 'Sherbrooke');
+
+INSERT INTO veterinarians (id, name, first_name, phone_number, address, city)
+    VALUES (1, 'Ashraghi', 'Emilia', '819-111-2342', '6 rue trois', 'Sherbrooke'),
+					 (2, 'Larouche', 'Valérie', '819-999-2342', '8 rue trois', 'Sherbrooke'),
+					 (3, 'Moreau', 'Jonathan', '819-784-2342', '0 rue trois', 'Sherbrooke');
+
+INSERT INTO types (id, type)
+    VALUES (1, 'Chat'),
+           (2, 'Chien');
+
+INSERT INTO animals (name, breed, id_type, age, id_vet, id_client, health_description)
+            VALUES   ('Boby', 'Bengal', 1, 1,  3, 1, 'patte cassé'),
+                     ('Lily', 'Labrador', 2, 5, 2, 2, 'patte cassé'),
+                     ('Michu', 'Persan', 1, 4, 1, 3, 'patte cassé'),
+                     ('Bibou', 'Golden', 2, 8, 2, 1, 'rage'),
+                     ('Asagi', 'Siamons', 1, 1, 3, 2, 'toxoplasme'),
+                     ('Mia', 'Caniche', 2, 10, 2, 3, 'patte cassé'),
+                     ('Rex', 'Toyger', 1, 3, 3, 1, 'patte cassé'),
+                     ('Toupet', 'Kangal', 2, 9, 2, 3, 'patte cassé'),
+					 ('Gandalf', 'Birman', 1, 2, 1, 1, 'trop énervé');
+
+INSERT INTO users (username, hashed_password, first_name, last_name)
+		  VALUES  ('valeriel', '$2y$10$4vnN2lUYxRExfik7kXDVTegXkjC1Me.W7pXaIaUtk6Bn3Ze.IsKf.', 'Valérie', 'Larouche'), -- MP: veterinaire1
+                  ('jonathanm', '$2y$10$VxGqGNF8sEJZH/N5a7rCtObGX0FLebETndA8IrQ1lUOh6vOe6uQaG', 'Jonathan', 'Moreau'), -- MP: veterinaire2
+                  ('emiliaa', '$2y$10$T0XYQYRJpY2XH7Xv.M0Q8OQ/ajmaB5W/YBW2ye0zu3lJY3h2HdycC', 'Emilia', 'Ashraghi'); -- MP: veterinaire3

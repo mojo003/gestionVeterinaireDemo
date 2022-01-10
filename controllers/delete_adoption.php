@@ -3,18 +3,18 @@
 include_once(__DIR__ . '/../controller.php');
 include_once(__DIR__ . '/../models/animals.php');
 
-class DeleteController extends Controller {
+class DeleteAdoptionController extends Controller {
   function handle(&$session, $get) {
     $username = $session['username'];
 
     if (isset($get['id'])) {
-      $animalID = $get['id'];
+      $adoptionlID = $get['id'];
 
-      $model = new aniModel($this->db);
-      $model->delete($animalID);
+      $model = new adoptModel($this->db);
+      $model->delete($adoptionlID);
     }
     
-    include(__DIR__ . '/../views/delete_confirmation.php');
+    include(__DIR__ . '/../views/delete_adoption_confirmation.php');
   }
   
   function isRestricted() {

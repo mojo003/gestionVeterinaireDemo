@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Connexion</title>
-    <link rel="stylesheet" type="text/css" href="public/css/style_animaux.css" />
+    <link rel="stylesheet" type="text/css" href="public/css/style_animals.css" />
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   </head>
   <body>
